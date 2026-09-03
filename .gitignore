@@ -1,5 +1,10 @@
-# transient design-review evidence, not part of the published site
-.impeccable/review/
+# Internal design/product docs. They live at the project root so the impeccable
+# tooling finds them, but this repo publishes from / on GitHub Pages, so nothing
+# here that is not part of the site may ever be tracked.
+PRODUCT.md
+DESIGN.md
+.impeccable/
+
 _capture.html
 _probe.html
 _mobile.html
