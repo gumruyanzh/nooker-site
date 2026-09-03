@@ -3,103 +3,425 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Nooker — a tidier macOS menu bar</title>
-<meta name="description" content="Nooker tucks crowded macOS menu bar items into named groups, each shown as one icon. One-time $1.99, lifetime license.">
-<meta property="og:title" content="Nooker — a tidier macOS menu bar">
-<meta property="og:description" content="Tuck crowded menu bar items into named groups. One-time $1.99, lifetime license.">
-<meta property="og:type" content="website">
+<title>Nooker — eight Menu Bar Items, two icons</title>
+<meta name="description" content="Nooker files crowded macOS Menu Bar Items into named Groups. One click reveals a Group, then it tucks itself away. $1.99 once, lifetime licence.">
+<meta property="og:title" content="Nooker — eight Menu Bar Items, two icons">
+<meta property="og:description" content="Files crowded macOS Menu Bar Items into named Groups. $1.99 once, lifetime licence.">
 <meta property="og:url" content="https://nooker.org">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://nooker.org/nooker-icon.png">
+<meta name="theme-color" content="#131316">
 <link rel="icon" href="nooker-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;800&family=Chivo:wght@400;500;700&family=Martian+Mono:wght@400;600&display=swap">
 <style>
-  :root{
-    --bg:#f5f5f7; --panel:#ffffff; --ink:#1d1d1f; --muted:#6e6e73;
-    --line:rgba(0,0,0,.09); --accent:#0a84ff; --accent-ink:#fff;
-    --shadow:0 1px 3px rgba(0,0,0,.06),0 12px 40px rgba(0,0,0,.08);
-  }
-  @media (prefers-color-scheme:dark){
-    :root{ --bg:#000; --panel:#161617; --ink:#f5f5f7; --muted:#a1a1a6;
-      --line:rgba(255,255,255,.12); --accent:#0a84ff;
-      --shadow:0 1px 3px rgba(0,0,0,.5),0 20px 60px rgba(0,0,0,.6);}
-  }
-  *{box-sizing:border-box}
-  html{-webkit-text-size-adjust:100%}
-  body{margin:0;background:var(--bg);color:var(--ink);
-    font:16px/1.55 -apple-system,BlinkMacSystemFont,"SF Pro Text","Helvetica Neue",Arial,sans-serif;
-    -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
-  a{color:var(--accent);text-decoration:none}
-  .wrap{max-width:720px;margin:0 auto;padding:0 24px}
-  header{padding:80px 0 40px;text-align:center}
-  .icon{width:120px;height:120px;border-radius:27%;box-shadow:var(--shadow);image-rendering:-webkit-optimize-contrast}
-  h1{font-size:clamp(40px,8vw,64px);line-height:1.05;letter-spacing:-.02em;margin:28px 0 8px;font-weight:700}
-  .tag{font-size:clamp(19px,3.6vw,24px);color:var(--muted);margin:0 auto;max-width:30ch;letter-spacing:-.01em}
-  .cta{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin:36px 0 10px}
-  .btn{display:inline-flex;align-items:center;gap:8px;padding:13px 22px;border-radius:980px;
-    font-weight:590;font-size:17px;letter-spacing:-.01em;border:1px solid transparent;transition:transform .12s ease,filter .12s ease}
-  .btn:active{transform:scale(.97)}
-  .btn.primary{background:var(--accent);color:var(--accent-ink)}
-  .btn.primary:hover{filter:brightness(1.06)}
-  .btn.ghost{background:var(--panel);color:var(--ink);border-color:var(--line);box-shadow:var(--shadow)}
-  .meta{color:var(--muted);font-size:14px;margin-top:6px}
-  .shot{margin:56px auto;max-width:640px;background:var(--panel);border:1px solid var(--line);
-    border-radius:16px;box-shadow:var(--shadow);overflow:hidden}
-  .barrow{display:flex;align-items:center;gap:2px;justify-content:flex-end;padding:12px 16px;
-    background:linear-gradient(#3a6ea5,#2f5c8a);color:#fff}
-  .barrow .grp{display:flex;align-items:center;gap:7px;padding:4px 9px;border-radius:8px;background:rgba(255,255,255,.16);font-size:13px}
-  .barrow .g{width:15px;height:15px;border-radius:4px;background:rgba(255,255,255,.85)}
-  .barrow .sys{opacity:.9;font-size:13px;margin-left:10px}
-  .caption{padding:14px 16px;color:var(--muted);font-size:14px;border-top:1px solid var(--line)}
-  .feats{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin:48px 0}
-  @media (max-width:560px){.feats{grid-template-columns:1fr}}
-  .feat h3{margin:0 0 4px;font-size:17px;letter-spacing:-.01em}
-  .feat p{margin:0;color:var(--muted);font-size:15px}
-  .price{background:var(--panel);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow);
-    padding:28px;text-align:center;margin:40px 0}
-  .price .big{font-size:44px;font-weight:700;letter-spacing:-.02em}
-  .price .sub{color:var(--muted);margin:2px 0 18px}
-  footer{color:var(--muted);font-size:13px;text-align:center;padding:56px 0 44px;border-top:1px solid var(--line);margin-top:40px}
-  footer a{color:var(--muted);text-decoration:underline}
+:root{
+  --concourse:#e9e9e7;
+  --ink:#141416;
+  --board:#131316;
+  --flap:#1d1d21;
+  --flap-2:#242429;
+  --seam:#0b0b0d;
+  --chalk:#eeeeea;
+  --amber:#f2a20c;
+  --amber-deep:#b27705;
+  --muted:#5e5e5a;
+  --rule:rgba(20,20,22,.18);
+  --hair:rgba(20,20,22,.10);
+  --sign:"Big Shoulders Display",Haettenschweiler,"Arial Narrow",sans-serif;
+  --text:"Chivo",-apple-system,BlinkMacSystemFont,"Helvetica Neue",sans-serif;
+  --data:"Martian Mono",ui-monospace,"SF Mono",Menlo,monospace;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{
+  margin:0;background:var(--concourse);color:var(--ink);
+  font-family:var(--text);font-size:17px;line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+::selection{background:var(--amber);color:var(--ink)}
+:focus-visible{outline:3px solid var(--amber);outline-offset:3px;border-radius:1px}
+.strip :focus-visible,.price :focus-visible{outline-color:var(--ink)}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+.wrap{max-width:1240px;margin:0 auto;padding-left:32px;padding-right:32px}
+
+/* ── station rail (top + bottom) ───────────────────────── */
+.rail{background:var(--board);color:var(--chalk)}
+header.rail{position:sticky;top:0;z-index:20}
+#how,#price{scroll-margin-top:76px}
+.rail .wrap{display:flex;align-items:center;justify-content:space-between;gap:24px;min-height:56px}
+.mark{display:flex;align-items:center;gap:10px}
+.mark img{width:22px;height:22px;border-radius:5px}
+.mark span{font-family:var(--sign);font-weight:800;font-size:25px;letter-spacing:.02em;line-height:1;text-transform:uppercase}
+.raillinks{display:flex;gap:26px;font-family:var(--data);font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase}
+.raillinks a{color:rgba(238,238,234,.72);padding:4px 0;white-space:nowrap;border-bottom:2px solid transparent;transition:color .15s,border-color .15s}
+.raillinks a:hover{color:var(--amber);border-color:var(--amber)}
+
+/* ── hero ──────────────────────────────────────────────── */
+.hero{padding-top:74px}
+h1{
+  font-family:var(--sign);font-weight:800;text-transform:uppercase;
+  font-size:clamp(64px,9.4vw,142px);line-height:.84;letter-spacing:-.015em;
+  margin:0;max-width:12ch;
+}
+h1 .b{display:block}
+h1 .amberword{color:var(--amber-deep)}
+.deck{
+  font-size:20px;line-height:1.55;color:var(--ink);max-width:60ch;
+  margin:26px 0 0;
+}
+.deck b{font-weight:700;white-space:nowrap}
+
+/* ── the board ─────────────────────────────────────────── */
+.board{
+  margin:44px 0 0;background:var(--board);color:var(--chalk);
+  border-radius:3px;overflow:hidden;
+  box-shadow:0 1px 0 rgba(255,255,255,.5), 0 26px 60px -28px rgba(12,12,14,.75);
+}
+.board-head,.row{
+  display:grid;grid-template-columns:minmax(0,1fr) 160px 188px;
+  gap:20px;align-items:center;padding-left:26px;padding-right:26px;
+}
+.board-head{
+  padding-top:10px;padding-bottom:10px;background:#0d0d10;border-bottom:1px solid #000;
+  font-family:var(--data);font-size:11px;font-weight:600;letter-spacing:.16em;
+  text-transform:uppercase;color:rgba(238,238,234,.62);
+}
+.board-head .r{text-align:center}
+.rows{padding:6px 0 8px}
+.row{min-height:52px;padding-top:11px;padding-bottom:11px;border-bottom:1px solid rgba(255,255,255,.055)}
+.row:last-child{border-bottom:0}
+.item{display:flex;align-items:center;gap:14px;min-width:0}
+.item svg{width:19px;height:19px;flex:none;color:rgba(238,238,234,.9)}
+.item .nm{
+  font-family:var(--data);font-size:13px;font-weight:400;letter-spacing:.02em;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+
+/* split-flap cell */
+.flap{position:relative;height:30px;perspective:420px;text-align:center}
+.flap .in{
+  position:relative;height:100%;transform-style:preserve-3d;
+  animation:flap 13s cubic-bezier(.6,.02,.24,1) infinite;
+}
+.flap .f{
+  position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+  backface-visibility:hidden;-webkit-backface-visibility:hidden;
+  border-radius:2px;padding:0 10px;
+  font-family:var(--data);font-size:12.5px;font-weight:600;letter-spacing:.09em;text-transform:uppercase;
+  background:linear-gradient(180deg,var(--flap-2) 0 49.5%,var(--seam) 49.5% 50.5%,var(--flap) 50.5% 100%);
+}
+.flap .back{transform:rotateX(180deg)}
+.flap .loose{color:rgba(238,238,234,.58)}
+.flap .set{color:var(--amber)}
+.flap .tuck{color:var(--chalk)}
+@keyframes flap{
+  0%,30%{transform:rotateX(0)}
+  42%,88%{transform:rotateX(-180deg)}
+  100%{transform:rotateX(0)}
+}
+.row:nth-child(1) .in{animation-delay:.00s}
+.row:nth-child(2) .in{animation-delay:.09s}
+.row:nth-child(3) .in{animation-delay:.18s}
+.row:nth-child(4) .in{animation-delay:.27s}
+.row:nth-child(5) .in{animation-delay:.36s}
+.row:nth-child(6) .in{animation-delay:.45s}
+.row:nth-child(7) .in{animation-delay:.54s}
+.row:nth-child(8) .in{animation-delay:.63s}
+
+/* action strip on the board's bottom rail */
+.strip{
+  display:flex;align-items:center;gap:18px;flex-wrap:wrap;
+  background:var(--amber);color:var(--ink);padding:16px 26px;
+}
+.dl{
+  display:inline-flex;align-items:center;gap:10px;height:50px;padding:0 24px;
+  background:var(--ink);color:var(--concourse);border-radius:2px;
+  font-family:var(--sign);font-weight:800;font-size:22px;letter-spacing:.03em;text-transform:uppercase;
+  transition:transform .16s cubic-bezier(.2,.7,.2,1),background .16s;
+}
+.dl svg{width:17px;height:17px}
+.dl:hover{background:#000;transform:translateY(-2px)}
+.buy{
+  font-family:var(--data);font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;
+  border-bottom:2px solid rgba(20,20,22,.45);padding-bottom:2px;transition:border-color .15s}
+.buy:hover{border-color:var(--ink)}
+.strip .why{
+  margin-left:auto;font-family:var(--data);font-size:12.5px;font-weight:400;
+  color:rgba(20,20,22,.72);
+}
+
+/* ── the line (how it works) ───────────────────────────── */
+.line{padding-top:104px}
+.h2{
+  font-family:var(--sign);font-weight:800;text-transform:uppercase;
+  font-size:clamp(40px,5.2vw,74px);line-height:.9;letter-spacing:-.01em;margin:0;
+}
+.track{position:relative;margin:52px 0 0;padding-top:34px}
+.stops{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:34px}
+.stop{position:relative;padding-right:22px}
+.stop::before{
+  content:"";position:absolute;top:-34px;left:0;width:19px;height:19px;border-radius:50%;
+  background:var(--concourse);border:3px solid var(--ink);
+}
+.stop.now::before{background:var(--amber)}
+.stop::after{
+  content:"";position:absolute;top:-27px;left:23px;right:-30px;height:5px;background:var(--ink);
+}
+.stop:last-child::after{content:none}
+.stop h3{
+  font-family:var(--sign);font-weight:800;text-transform:uppercase;font-size:38px;
+  letter-spacing:.01em;line-height:1;margin:0 0 10px;
+}
+.stop p{margin:0;font-size:16.5px;line-height:1.6;color:var(--muted);max-width:34ch}
+
+/* ── price band ────────────────────────────────────────── */
+.price{margin-top:110px;background:var(--amber);color:var(--ink)}
+.price .wrap{
+  display:grid;grid-template-columns:minmax(0,1fr) auto;gap:48px;align-items:center;
+  padding-top:56px;padding-bottom:56px;
+}
+.amount{
+  font-family:var(--sign);font-weight:800;font-size:clamp(96px,15vw,208px);line-height:.78;
+  letter-spacing:-.03em;margin:0;font-variant-numeric:tabular-nums;
+}
+.amount .cur{font-size:.42em;vertical-align:.62em;margin-right:.06em}
+.terms{margin:16px 0 0;font-size:19px;line-height:1.5;max-width:34ch;font-weight:500}
+.terms b{font-weight:700}
+.pricebtn{
+  display:inline-flex;align-items:center;justify-content:center;height:62px;padding:0 34px;
+  background:var(--ink);color:var(--concourse);border-radius:2px;
+  font-family:var(--sign);font-weight:800;font-size:27px;letter-spacing:.03em;text-transform:uppercase;
+  transition:transform .16s cubic-bezier(.2,.7,.2,1),background .16s;
+}
+.pricebtn:hover{background:#000;transform:translateY(-2px)}
+.pricenote{
+  margin:14px 0 0;font-family:var(--data);font-size:11px;font-weight:400;letter-spacing:.08em;
+  text-transform:uppercase;color:rgba(20,20,22,.72);text-align:center;
+}
+.pricenote a{border-bottom:1px solid rgba(20,20,22,.4)}
+.pricenote a:hover{border-color:var(--ink)}
+
+/* ── timetable ─────────────────────────────────────────── */
+.spec{padding-top:96px;padding-bottom:104px}
+.table{margin-top:34px;border-top:3px solid var(--ink)}
+.tr{
+  display:grid;grid-template-columns:230px minmax(0,1fr);gap:24px;
+  padding:15px 0;border-bottom:1px solid var(--hair);align-items:baseline;
+}
+.tr dt{
+  font-family:var(--data);font-size:11px;font-weight:600;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--muted);margin:0;
+}
+.tr dd{margin:0;font-size:17px;font-variant-numeric:tabular-nums}
+.tr dd .no{color:var(--muted)}
+
+/* ── footer rail ───────────────────────────────────────── */
+footer .wrap{
+  min-height:70px;font-family:var(--data);font-size:11px;font-weight:400;
+  letter-spacing:.08em;text-transform:uppercase;color:rgba(238,238,234,.66);
+}
+
+/* ── responsive ────────────────────────────────────────── */
+@media (max-width:900px){
+  .board-head,.row{grid-template-columns:minmax(0,1fr) 104px 124px;gap:12px;padding-left:16px;padding-right:16px}
+  .board-head{letter-spacing:.10em}
+  .flap .f{font-size:11px;letter-spacing:.05em;padding:0 7px}
+  .item .nm{font-size:12px}
+  .stops{grid-template-columns:1fr;gap:38px}
+  .stop{padding-left:44px;padding-right:0}
+  .stop::before{top:2px;left:0}
+  .stop::after{top:25px;left:7px;right:auto;width:5px;height:auto;bottom:-36px}
+  .track{padding-top:0}
+  .price .wrap{grid-template-columns:1fr;gap:28px}
+  .spec .tr{grid-template-columns:1fr;gap:4px}
+}
+@media (max-width:620px){
+  body{font-size:16px}
+  .wrap{padding-left:20px;padding-right:20px}
+  .hero{padding-top:44px}
+  .deck{font-size:18px}
+  .board-head,.row{grid-template-columns:minmax(0,1fr) 58px 70px;gap:7px;padding-left:13px;padding-right:13px}
+  .board-head{letter-spacing:.04em}
+  .item{gap:10px}
+  .flap .f{font-size:11px;letter-spacing:.02em;padding-left:5px;padding-right:5px}
+  .raillinks{gap:18px}
+  .raillinks .wide-only{display:none}
+  footer.rail .wrap{flex-direction:column;align-items:flex-start;gap:4px;min-height:0;padding-top:18px;padding-bottom:18px}
+  .strip{padding:14px 16px;gap:14px}
+  .strip .why{margin-left:0;width:100%}
+  .dl{width:100%;justify-content:center}
+  .pricebtn{width:100%}
+}
+@media (prefers-reduced-motion:reduce){
+  .flap .in{animation:none;transform:rotateX(-180deg)}
+  .dl,.pricebtn{transition:none}
+}
 </style>
 </head>
 <body>
-<div class="wrap">
-  <header>
-    <img class="icon" src="nooker-icon.png" alt="Nooker app icon" width="120" height="120">
-    <h1>Nooker</h1>
-    <p class="tag">Tuck a crowded menu bar into tidy, named groups.</p>
-    <div class="cta">
-      <a class="btn primary" href="Nooker.dmg" download>Download for macOS</a>
-      <a class="btn ghost" href="https://buy.stripe.com/28E8wRe7IeJn9OncR48Ra01">Buy the license · $1.99</a>
+<!--
+THESIS: A departure board, not a hero. The page proves the mechanism by flipping a crowded Menu Bar into two named Groups on screen, refusing the app-landing default of floating screenshot, feature triplet and gradient.
+OWN-WORLD: Pale concourse ground, one matte board-black artifact, signal amber owning whole bands. Big Shoulders signage caps, Chivo text, Martian Mono board data. Hairline rules and flap seams; no glass, no gradient text, no glow.
+STORY: A developer with a jammed bar watches eight Items become two icons, learns it costs $1.99 once, and downloads.
+FIRST VIEWPORT: Black station rail; condensed headline "EIGHT ITEMS. TWO ICONS."; one-line deck; then the split-flap board at full container width flipping its GROUP and STATUS columns, amber action strip welded to its bottom rail.
+FORM: Departure board, candidate 4 of 7, seed 2160580e.
+FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, DESIGN.md, and every shipping raster carrying its provenance
+-->
+
+<header class="rail">
+  <div class="wrap">
+    <a class="mark" href="/"><img src="nooker-icon.png" alt=""><span>Nooker</span></a>
+    <nav class="raillinks">
+      <a class="wide-only" href="#how">How it works</a>
+      <a href="#price">Price</a>
+      <a href="Nooker.dmg">Download</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero wrap">
+    <h1><span class="b">Eight items.</span><span class="b amberword">Two icons.</span></h1>
+    <p class="deck">Crowded Menu Bar Items, filed into Groups you name. <b>$1.99 once.</b></p>
+
+    <div class="board">
+      <div class="board-head">
+        <div>Menu Bar Item</div>
+        <div class="r">Group</div>
+        <div class="r st">Status</div>
+      </div>
+      <div class="rows">
+        <div class="row">
+          <div class="item">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 12h4l2-5 3 10 2.5-7 1.8 4H21" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span class="nm">Activity monitor</span>
+          </div>
+          <div class="flap"><div class="in"><div class="f loose" aria-hidden="true"></div><div class="f back set">Dev</div></div></div>
+          <div class="flap st"><div class="in"><div class="f loose" aria-hidden="true">In the bar</div><div class="f back tuck">Tucked</div></div></div>
+        </div>
+        <div class="row">
+          <div class="item">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="6" width="18" height="13" rx="2.5" stroke="currentColor" stroke-width="1.7"/><path d="M3 10h18M7.5 14.5h5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+            <span class="nm">Container daemon</span>
+          </div>
+          <div class="flap"><div class="in"><div class="f loose" aria-hidden="true"></div><div class="f back set">Dev</div></div></div>
+          <div class="flap st"><div class="in"><div class="f loose" aria-hidden="true">In the bar</div><div class="f back tuck">Tucked</div></div></div>
+        </div>
+        <div class="row">
+          <div class="item">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 4 4 8v4.5c0 4.4 3.3 7.4 8 8.5 4.7-1.1 8-4.1 8-8.5V8l-8-4Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M9 12.4l2.1 2.1L15.4 10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span class="nm">Mesh VPN</span>
+          </div>
+          <div class="flap"><div class="in"><div class="f loose" aria-hidden="true"></div><div class="f back set">Dev</div></div></div>
+          <div class="flap st"><div class="in"><div class="f loose" aria-hidden="true">In the bar</div><div class="f back tuck">Tucked</div></div></div>
+        </div>
+        <div class="row">
+          <div class="item">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 5h16v11H13l-4 3v-3H4V5Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg>
+            <span class="nm">Messenger</span>
+          </div>
+          <div class="flap"><div class="in"><div class="f loose" aria-hidden="true"></div><div class="f back set">Chat</div></div></div>
+          <div class="flap st"><div class="in"><div class="f loose" aria-hidden="true">In the bar</div><div class="f back tuck">Tucked</div></div></div>
+        </div>
+        <div class="row">
+          <div class="item">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 15.5a3.5 3.5 0 0 0 3.5-3.5V6a3.5 3.5 0 1 0-7 0v6a3.5 3.5 0 0 0 3.5 3.5Z" stroke="currentColor" stroke-width="1.7"/><path d="M6 11.5A6 6 0 0 0 18 11.5M12 18.5V21" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+            <span class="nm">Meeting mic</span>
+          </div>
+          <div class="flap"><div class="in"><div class="f loose" aria-hidden="true"></div><div class="f back set">Chat</div></div></div>
+          <div class="flap st"><div class="in"><div class="f loose" aria-hidden="true">In the bar</div><div class="f back tuck">Tucked</div></div></div>
+        </div>
+        <div class="row">
+          <div class="item">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="4" y="4" width="9" height="9" rx="1.6" stroke="currentColor" stroke-width="1.7"/><rect x="11" y="11" width="9" height="9" rx="1.6" stroke="currentColor" stroke-width="1.7"/></svg>
+            <span class="nm">Clipboard</span>
+          </div>
+          <div class="flap"><div class="in"><div class="f loose" aria-hidden="true"></div><div class="f back set">Dev</div></div></div>
+          <div class="flap st"><div class="in"><div class="f loose" aria-hidden="true">In the bar</div><div class="f back tuck">Tucked</div></div></div>
+        </div>
+        <div class="row">
+          <div class="item">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="8" stroke="currentColor" stroke-width="1.7"/><path d="M12 7.5V12l3 1.8" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+            <span class="nm">Time tracker</span>
+          </div>
+          <div class="flap"><div class="in"><div class="f loose" aria-hidden="true"></div><div class="f back set">Dev</div></div></div>
+          <div class="flap st"><div class="in"><div class="f loose" aria-hidden="true">In the bar</div><div class="f back tuck">Tucked</div></div></div>
+        </div>
+        <div class="row">
+          <div class="item">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 19V7.5L12 4l7 3.5V19" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M10 19v-5h4v5" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg>
+            <span class="nm">Backup agent</span>
+          </div>
+          <div class="flap"><div class="in"><div class="f loose" aria-hidden="true"></div><div class="f back set">Chat</div></div></div>
+          <div class="flap st"><div class="in"><div class="f loose" aria-hidden="true">In the bar</div><div class="f back tuck">Tucked</div></div></div>
+        </div>
+      </div>
+      <div class="strip">
+        <a class="dl" href="Nooker.dmg">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3v12m0 0 4.5-4.5M12 15l-4.5-4.5" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"/><path d="M4 19.5h16" stroke="currentColor" stroke-width="2.1" stroke-linecap="round"/></svg>
+          Download
+        </a>
+        <a class="buy" href="https://buy.stripe.com/28E8wRe7IeJn9OncR48Ra01">Buy a licence · $1.99</a>
+        <span class="why">macOS 26+ · Apple Silicon · 2 MB</span>
+      </div>
     </div>
-    <p class="meta">macOS 26 or later · Apple Silicon · notarized. One-time $1.99, lifetime license.</p>
-  </header>
+  </section>
 
-  <div class="shot" aria-hidden="true">
-    <div class="barrow">
-      <span class="grp"><span class="g"></span>Dev</span>
-      <span class="grp"><span class="g"></span>Chat</span>
-      <span class="sys">􀙭 􀋦 􀛨 100% 9:41</span>
+  <section class="line wrap" id="how">
+    <h2 class="h2">Set it once,<br>then stop looking up.</h2>
+    <div class="track">
+      <div class="stops">
+        <div class="stop now">
+          <h3>Group</h3>
+          <p>Drag an Item into a Group and name it. The Group holds one slot in the Menu Bar; everything inside it leaves.</p>
+        </div>
+        <div class="stop">
+          <h3>Reveal</h3>
+          <p>Click the Group and its Items drop into a Strip. Each one's own menu opens exactly as it always did.</p>
+        </div>
+        <div class="stop">
+          <h3>Tuck</h3>
+          <p>The Strip closes behind you. Items you never touch go to the Hidden Group and leave the bar entirely.</p>
+        </div>
+      </div>
     </div>
-    <div class="caption">Several apps, one icon each. Click a group to reveal its items; drag them back any time.</div>
-  </div>
+  </section>
+</main>
 
-  <div class="feats">
-    <div class="feat"><h3>Group what you want</h3><p>Drag menu bar items into named groups. Each group shows as a single icon.</p></div>
-    <div class="feat"><h3>Reveal on click</h3><p>Open a group to see its items in a tidy strip, then it tucks itself away again.</p></div>
-    <div class="feat"><h3>A Hidden group</h3><p>For items you never want to see — kept out of the bar entirely.</p></div>
-    <div class="feat"><h3>Yours forever</h3><p>One small payment, a lifetime license, and free updates. Never phones home.</p></div>
+<section class="price" id="price">
+  <div class="wrap">
+    <div>
+      <p class="amount"><span class="cur">$</span>1.99</p>
+      <p class="terms">Paid <b>once</b>. A lifetime licence for every Mac you own, and every update after this one. No subscription, no account, no telemetry.</p>
+    </div>
+    <div>
+      <a class="pricebtn" href="https://buy.stripe.com/28E8wRe7IeJn9OncR48Ra01">Buy a licence</a>
+      <p class="pricenote">or <a href="Nooker.dmg">download it first</a></p>
+    </div>
   </div>
+</section>
 
-  <div class="price">
-    <div class="big">$1.99</div>
-    <div class="sub">one-time · lifetime license</div>
-    <a class="btn primary" href="https://buy.stripe.com/28E8wRe7IeJn9OncR48Ra01">Buy Nooker</a>
-    <p class="meta" style="margin-top:14px">Prefer to try first? <a href="Nooker.dmg" download>Download</a> and buy a license when you're ready.</p>
+<section class="spec wrap">
+  <h2 class="h2">The particulars.</h2>
+  <dl class="table">
+    <div class="tr"><dt>Requires</dt><dd>macOS 26 or later</dd></div>
+    <div class="tr"><dt>Architecture</dt><dd>Apple Silicon <span class="no">— no Intel build</span></dd></div>
+    <div class="tr"><dt>Download</dt><dd>2 MB disk image</dd></div>
+    <div class="tr"><dt>Signed</dt><dd>Developer ID, notarized by Apple</dd></div>
+    <div class="tr"><dt>Network</dt><dd>None. Nooker never phones home.</dd></div>
+    <div class="tr"><dt>Licence</dt><dd>$1.99 once, lifetime</dd></div>
+    <div class="tr"><dt>Publisher</dt><dd>Venture Deals, Co.</dd></div>
+  </dl>
+</section>
+
+<footer class="rail">
+  <div class="wrap">
+    <span>© 2026 Venture Deals, Co.</span>
+    <span>Not affiliated with Apple</span>
   </div>
-
-  <footer>
-    © <span id="y"></span> Venture Deals, Co. · Nooker is a macOS utility. Not affiliated with Apple.
-  </footer>
-</div>
-<script>document.getElementById('y').textContent=new Date().getFullYear()</script>
+</footer>
 </body>
 </html>

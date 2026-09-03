@@ -1,0 +1,6 @@
+# transient design-review evidence, not part of the published site
+.impeccable/review/
+_capture.html
+_probe.html
+_mobile.html
+.DS_Store
